@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Kendo UI Snippet</title>
+
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common.min.css"/>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.rtl.min.css"/>
+    <link rel="stylesheet" href="css/kendo.silver.min.css"/>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.mobile.all.min.css"/>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>
+</head>
+<body>
+
+<div id="example">
+          <h3>Upload files and select additional metadata</h3>
+            <div class="demo-section k-header">
+                <input type="file" name="files" id="files" />
+            </div>
+
+            <script id="fileTemplate" type="text/x-kendo-template">
+                <span class='k-progress'></span>
+                <div class='file-wrapper'>
+                    <h4 class='file-heading file-name-heading'>Name: #=name#</h4>
+                    <h4 class='file-heading file-size-heading'>Size: #=size# bytes</h4>
+                    <h4 id='label'>Artist:</h4>
+                    <select id='select'>
+                        <option>Armin van Buuren</option>
+                        <option>Alexander Popov</option>
+                        <option>David Gravell</option>
+                        <option>Fedde Le Grand</option>
+                    </select>
+                    <h4 id='label'>Event:</h4>
+                    <select id='select'>
+                        <option>A State Of Trance Utrecht</option>
+                        <option>A State Of Trance Miami</option>
+                        <option>A State Of Trance Sydney</option>
+                        <option>A State Of Trance Poland</option>
+                    </select>
+                    <h4 id='label'>Type:</h4>
+                    <select id='select'>
+                        <option>Event footage</option>
+                        <option>Interview</option>
+                        <option>Liveset</option>
+                        <option>YourArmada</option>
+                    </select>
+                    <button type='button' class='k-upload-action'></button>
+                </div>
+            </script>
+
+            <script>
+                $(document).ready(function () {
+                    $("#files").kendoUpload({
+                        multiple: true,
+                        async: {
+                            saveUrl: "save",
+                            removeUrl: "remove",
+                            autoUpload: false
+                        },
+                        template: kendo.template($('#fileTemplate').html()),
+                        select: onSelect,
+                          upload: onUpload
+                    });
+                });
+
+                function onSelect(e){
+                  var upload = this;
+                  var files = e.files;
+
+                  setTimeout(function(){
+                    for(var i = 0; i < files.length; i++){
+                      var select = upload.wrapper.find(".k-file[data-uid='" + files[i].uid +"'] select");
+                      select.kendoDropDownList();
+                    }
+                  });
+                }
+
+              function onUpload(e){
+                var upload = this;
+                var dropdown = upload.wrapper.find(".k-file[data-uid='" + e.files[0].uid +"'] select").data("kendoDropDownList");
+
+                e.data = {
+                    uploader: dropdown.value()
+                };
+              }
+            </script>
+
+            <style scoped>
+              html {
+                font-size: 12px;
+                font-family: Arial, Helvetica, sans-serif;
+              }
+
+              #example {
+                width: 1280px;
+              }
+                #label{
+                 display : inline;
+                 padding-right : 4px;
+                }
+
+                #select{
+                 margin-top : 4px;
+                }
+
+                #example .file-heading
+                {
+                    font-family: Arial;
+                    font-size: 1.0em;
+                    line-height: 35px;
+                    display: inline;
+                    float: left;
+                    margin: 0 20px 0 20px;
+                    height: 25px;
+                    -ms-text-overflow: ellipsis;
+                    -o-text-overflow: ellipsis;
+                    text-overflow: ellipsis;
+                    overflow:hidden;
+                    white-space:nowrap;
+                }
+
+                    #example .file-name-heading
+                    {
+                        font-weight: bold;
+                    }
+
+                     #example .file-size-heading
+                    {
+                        font-weight: normal;
+                        font-style: italic;
+                    }
+
+                li.k-file .file-wrapper .k-upload-action
+                {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
+
+                li.k-file div.file-wrapper
+                {
+                    position: relative;
+                    height: 33px;
+                }
+            </style>
+        </div>
+
+
+    </script>
+</body>
+</html>

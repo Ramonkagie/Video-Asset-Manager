@@ -1,0 +1,403 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color:#F5F5F5;
+}
+#logo {
+    position: absolute;
+    padding: 18px
+}
+#gebruiker {
+    position: absolute;
+    display:block;
+    right: 0px;
+    float: left;
+    height: 70px;
+    width: 180px;
+    padding-top: 10px;
+    line-height: 40px;
+}
+#gebruiker p{
+    color: #fff;
+    font-family: geometria;
+    float: left;
+    text-decoration: none;
+    margin: 0;
+    font-size: 14px;
+}
+#profile-picture {
+    border-radius: 50%;
+    width: 40px;
+    right: px;
+    margin-left: 20px;
+}
+#profile-picture-settings {
+    border-radius: 50%;
+    display:block;
+    margin:auto;
+}
+.navigatie{
+    border:1px solid #ccc;
+    border-width:1px 0;
+    list-style:none;
+    margin:0;
+    padding:0;
+    height: 60px;
+    text-align:center;
+    background-color: #0e3d7b;
+    color: #fff;
+
+
+}
+.navigatie li{
+    display:inline;
+}
+.navigatie a{
+    font-family: geometria;
+    font-size: 14px;
+    display:inline-block;
+    padding:10px;
+    color: #fff;
+    height: 40px;
+    border: 1px solid #fff;
+    padding-right: 25px;
+    padding-left: 25px;
+    margin-top: 7px;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: 0.2s;
+}
+.navigatie a:hover {
+    background-color: #1e73be;
+
+}
+
+.achtergrond {
+    background-color: #fff;
+    margin: 20px;
+    width: auto;
+    height: auto;
+    padding-bottom: 30px;
+    -webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.10);
+-moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.10);
+box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.10);
+    overflow:auto;
+}
+
+.achtergrond-twee {
+    background-color: #fff;
+    top: 900px;
+    width: auto;
+    padding-bottom: 30px;
+    -webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.10);
+-moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.10);
+box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.10);
+    overflow:auto;
+}
+
+.achtergrond-video {
+    background-color: #fff;
+    margin: 20px;
+    width: auto;
+    padding-bottom: 30px;
+    -webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.10);
+-moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.10);
+box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.10);
+    overflow:auto;
+    position: relative;
+}
+#paginatitel {
+    color: #0e3d7b;
+    font-family: geometria;
+    font-weight: 400;
+    padding-left: 25px;
+    text-transform: uppercase;
+}
+
+#paginatitel-tweerij {
+     color: #0e3d7b;
+    font-family: geometria;
+    font-weight: 400;
+    padding-left: 30px;
+    text-transform: uppercase;
+}
+#paginacontainer {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+#paginacontainer-video {
+    margin-left: 30px;
+    margin-right: 30px
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+.videothumb {
+    padding: 20px;
+    float: left;
+}
+.videothumb-tekst {
+    margin: 0;
+    color: #0e3d7b;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: geometria;
+}
+.videothumb a{
+    text-decoration: none;
+
+}
+/* ------ PAGINATION -------*/
+.pagination {
+    display: inline-block;
+    right: 30px;
+    bottom: 20px;
+    position: absolute;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 6px 12px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    font-size: 12px;
+}
+
+.pagination a.active {
+    background-color: #0e3d7b;
+    color: white;
+    border: 1px solid #0e3d7b;
+}
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+.pagination-footage {
+    display: inline-block;
+    right: 30px;
+    padding-top: 20px;
+    float:right;
+
+}
+.pagination-footage a {
+    color: black;
+    float: left;
+    padding: 6px 12px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    font-size: 12px;
+}
+.pagination-footage a.active {
+    background-color: #0e3d7b;
+    color: white;
+    border: 1px solid #0e3d7b;
+}
+.pagination-footage a:hover:not(.active) {background-color: #ddd;}
+
+/* ------ RULER ------- */
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ------ DOWNLOAD BUTTON ------- */
+#download-button {
+     font-family: geometria;
+    font-size: 14px;
+    display:block;
+    padding:10px;
+    width: 190px;
+    text-align: center;
+    color: #0e3d7b;
+    background-color: transparent;
+    height: 40px;
+    border: 1px solid #0e3d7b;
+    padding-right: 25px;
+    padding-left: 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.2s;
+    right:30px;
+    top: 50px;
+    position: absolute;
+}
+
+#download-button:hover {
+    color: #fff;
+    background-color: #0e3d7b;
+}
+
+#download-button a {
+    color: #0e3d7b;
+    text-decoration: none;
+}
+#download-button a:hover {
+    color: #fff;
+    background-color: #0e3d7b;
+    text-decoration: none;
+}
+/* ------ ADMIN BUTTON ------- */
+#admin-button {
+     font-family: geometria;
+    font-size: 14px;
+    display:block;
+    padding:10px;
+    width: 190px;
+    text-align: center;
+    color: #0e3d7b;
+    background-color: transparent;
+    height: 40px;
+    border: 1px solid #0e3d7b;
+    padding-right: 25px;
+    padding-left: 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.2s;
+    right: 41px;
+    top: 100px;
+    position: absolute;
+}
+
+#admin-button:hover {
+    color: #fff;
+    background-color: #0e3d7b;
+}
+
+#admin-button a {
+    color: #0e3d7b;
+    text-decoration: none;
+}
+#admin-button a:hover {
+    color: #fff;
+    background-color: #0e3d7b;
+    text-decoration: none;
+}
+
+/* ------ BUTTON FAIL------- */
+.button-fail{
+    font-family: geometria;
+    font-size: 14px;
+    display:block;
+    padding:10px;
+    text-align: center;
+    color: #ab0c04;
+    background-color: transparent;
+    height: 40px;
+    border: 1px solid #ab0c04;
+    padding-right: 25px;
+    padding-left: 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.2s;
+    float: left;
+}
+
+.button-fail:hover {
+    color: #fff;
+    background-color: #ab0c04;
+
+}
+/* ------ BUTTON SUCCES------- */
+.button-succes{
+    font-family: geometria;
+    font-size: 14px;
+    display:block;
+    padding:10px;
+    text-align: center;
+    color: #0e3d7b;
+    background-color: transparent;
+    height: 40px;
+    border: 1px solid #0e3d7b;
+    padding-right: 25px;
+    padding-left: 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.2s;
+    float: left;
+    margin-right: 10px;
+}
+
+.button-succes:hover {
+    color: #fff;
+    background-color: #0e3d7b;
+
+/* ------ FORM CONTROL------- */
+}
+.form-control {
+    border-radius: 0px !important;
+}
+.form-control:focus {
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(14, 61, 123, 1);
+}
+input::-webkit-calendar-picker-indicator {
+    opacity: 100;
+    width: 6px;
+    height: 7px;
+    margin-right: -10px
+}
+
+.table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th {
+    border-bottom: 0;
+}
+/* ------ DROPDOWN ------- */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    text-align: center;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    top: 60px;
+    font-family: geometria;
+    font-size: 14px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+/* ------ IMPORT ------- */
+.k-upload {
+    text-align: center;
+}
+
+/* ------ Pop-up tekst ------- */
+#html5box-html5-lightbox .html5-text {
+    color: #0e3d7b !important;
+    font-size: 14px !important;
+    font-family: geometria !important;
+}

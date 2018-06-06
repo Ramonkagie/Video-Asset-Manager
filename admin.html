@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Admin Panel</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <a href="footage.html"><img src="img/armada-logo.png" id="logo"></a>
+    <div class="dropdown">
+    <div id="gebruiker"><p>Ramon Kagie</p><img src="img/profile-picture.jpg" id="profile-picture"></div>
+  <div class="dropdown-content">
+    <a href="admin.html">Admin Panel</a>
+    <a href="settings.html">Account Settings</a>
+  </div>
+</div>
+<ul class="navigatie">
+  <li><a href="footage.html">Find footage</a></li>
+  <li><a href="import.html">Import footage</a></li>
+  <li><a href="settings.html">Settings</a></li>
+</ul>
+
+<div class="achtergrond">
+    <h3 id="paginatitel">Admin panel</h3>
+    <div id="paginacontainer">
+        <a id="admin-button" href="settings.html">back</a>
+        <div class="container">
+            <form class="form-horizontal">
+                <fieldset>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="textinput">Add/delete artist</label>
+                        <div class="col-md-4">
+                            <input list="add-delete-artist" name="add-delete-artist" class="form-control" placeholder="Artist name">
+                            <datalist id="add-delete-artist">
+                                <option value="Alexander Popov"></option>
+                                <option value="Andrew Rayel"></option>
+                                <option value="Armin van Buuren"></option>
+                                <option value="Fedde Le Grand"></option>
+                                <option value="Heatbeat"></option>
+                                <option value="Loud Luxury"></option>
+                                <option value="Pablo Nouvelle"></option>
+                                <option value="Radion6"></option>
+                                <option value="Showtek"></option>
+                                <option value="Sultan and Shepard"></option>
+                                <option value="Sunnery James and Ryan Marciano"></option>
+                            </datalist>
+                        </br>
+
+                        <button id="singlebutton" name="singlebutton" class="button-succes">Add</button><button id="singlebutton" onclick="deleteConfirm()" name="singlebutton" class="button-fail">Delete</button>
+                    </div>
+                    </div>
+                <hr>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">Add/delete event</label>
+                    <div class="col-md-4">
+                        <input list="add-delete-event" name="add-delete-event" class="form-control" placeholder="Event name"><datalist id="add-delete-event">
+                        <option value="A State Of Trance Miami"></option>
+                        <option value="A State Of Trance Sydney"></option>
+                        <option value="A State Of Trance Utrecht"></option>
+                        <option value="Armada Invites"></option>
+                        <option value="Dancefair"></option>
+                        <option value="EDC Las Vegas"></option>
+                        <option value="New Horizons"></option>
+                        <option value="Tomorrowland"></option>
+                        <option value="Ultra Miami"></option>
+                        </datalist></br>
+                    <button id="singlebutton" name="singlebutton" class="button-succes">Add</button><button id="singlebutton" onclick="deleteConfirm()" name="singlebutton" class="button-fail">Delete</button>
+                </div>
+                </div>
+            <hr>
+            <div class="form-group">
+
+                <label class="col-md-4 control-label" for="textinput">Add/delete type</label>
+                <div class="col-md-4">
+
+                    <input list="add-delete-type" name="add-delete-type" class="form-control" placeholder="Footage type"><datalist id="add-delete-type">
+                    <option value="Event footage"></option>
+                    <option value="Liveset"></option>
+                    <option value="Interview"></option>
+                    <option value="YourArmada"></option>
+                    </datalist></br>
+                <button id="singlebutton" name="singlebutton" class="button-succes">Add</button><button id="singlebutton" onclick="deleteConfirm()" name="singlebutton" class="button-fail">Delete</button>
+            </div>
+
+        </div>
+        <hr>
+        </fieldset>
+    </form>
+
+    </div>
+
+    </div>
+<script>
+function deleteConfirm() {
+    var txt;
+    if (confirm("Are you sure you want to delete this?")) {
+    }
+
+}
+</script>
+</body>
+</html>

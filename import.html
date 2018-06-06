@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Import footage</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+    <link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.min.css'>
+    <link rel='stylesheet prefetch' href='http://rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css'>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/kendo.silver.min.css"/>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common.min.css"/>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.rtl.min.css"/>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.mobile.all.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script src="https://kendo.cdn.telerik.com/2018.1.221/js/angular.min.js"></script>
+  <script src="https://kendo.cdn.telerik.com/2018.1.221/js/jszip.min.js"></script>
+  <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>
+</head>
+<body>
+<a href="footage.html"><img src="img/armada-logo.png" id="logo"></a>
+            <div class="dropdown">
+            <div id="gebruiker"><p>Ramon Kagie</p><img src="img/profile-picture.jpg" id="profile-picture"></div>
+  <div class="dropdown-content">
+    <a href="admin.html">Admin Panel</a>
+    <a href="settings.html">Account Settings</a>
+  </div>
+</div>
+<ul class="navigatie">
+  <li><a href="footage.html">Find footage</a></li>
+  <li><a href="import.html">Import footage</a></li>
+  <li><a href="settings.html">Settings</a></li>
+</ul>
+
+<div class="achtergrond">
+<h3 id="paginatitel">import footage</h3>
+    <div id="paginacontainer">
+<div id="example">
+          <h3>Drag and drop file(s) you want to import</h3>
+            <div class="demo-section k-header">
+                <input type="file" name="files" id="files" />
+            </div>
+
+            <script id="fileTemplate" type="text/x-kendo-template">
+                <span class='k-progress'></span>
+                <img src="img/thumbnail-video1.jpg" id="thumbnail">
+                <div class='file-wrapper'>
+
+                    <h4 class='file-heading file-name-heading'>Name: #=name#</h4>
+                    <h4 class='file-heading file-size-heading'>Size: #=size# bytes</h4>
+                    <div id="eersteregel"><h4 id='label'>Artist:</h4>
+                    <select id='select'>
+                        <option>Alexander Popov</option>
+                        <option>Andrew Rayel</option>
+                        <option>Armin van Buuren</option>
+                        <option>Fedde Le Grand</option>
+                        <option>Heatbeat</option>
+                        <option>Loud Luxury</option>
+                        <option>Pablo Nouvelle</option>
+                        <option>Radion6</option>
+                        <option>Showtek</option>
+                        <option>Sultan and Shepard</option>
+                        <option>Sunnery James and Ryan Marciano</option>
+                    </select>
+                    <h4 id='label'>Event:</h4>
+                    <select id='select'>
+                        <option>A State Of Trance Maimi</option>
+                        <option>A State Of Trance Sydney</option>
+                        <option>A State Of Trance Utrecht</option>
+                        <option>Armada Invites</option>
+                        <option>Dancefair</option>
+                        <option>EDC Las Vegas</option>
+                        <option>New Horizons</option>
+                        <option>Tomorrowland</option>
+                        <option>Ultra Miami</option>
+                    </select></div></br><div id="tweederegel">
+                    <h4 id='label'>Date:</h4>
+                    <select id='select'>
+                        <option>2018</option>
+                        <option>2017</option>
+                        <option>2016</option>
+                        <option>2015</option>
+                    </select>
+                    <h4 id='label'>Type:</h4>
+                    <select id='select'>
+                        <option>Event footage</option>
+                        <option>Interview</option>
+                        <option>Liveset</option>
+                        <option>YourArmada</option>
+                    </select></div></br></br>
+                    <button type='button' class='k-upload-action'></button>
+                </div>
+            </script>
+            <script>
+                $(document).ready(function () {
+                    $("#files").kendoUpload({
+                        multiple: true,
+                        async: {
+                            saveUrl: "saveHandler.php",
+                            removeUrl: "removeHandler.php",
+                            autoUpload: false
+                        },
+                                    validation: {
+                allowedExtensions: [".mp4",".mov",".mxf"],
+            },
+                        template: kendo.template($('#fileTemplate').html()),
+                        select: onSelect,
+                          upload: onUpload
+                    });
+
+
+                                // create DatePicker from input HTML element
+                $("#datepicker").kendoDatePicker();
+
+                $("#monthpicker").kendoDatePicker({
+                    // defines the start view
+                    start: "year",
+
+                    // defines when the calendar should return date
+                    depth: "year",
+
+                    // display month and year in the input
+                    format: "MMMM yyyy",
+
+                    // specifies that DateInput is used for masking the input element
+                    dateInput: true
+                });
+
+                });
+
+                function onSelect(e){
+                  var upload = this;
+                  var files = e.files;
+
+                  setTimeout(function(){
+                    for(var i = 0; i < files.length; i++){
+                      var select = upload.wrapper.find(".k-file[data-uid='" + files[i].uid +"'] select");
+                      select.kendoDropDownList();
+                    }
+                  });
+                }
+
+              function onUpload(e){
+                var upload = this;
+                var dropdown = upload.wrapper.find(".k-file[data-uid='" + e.files[0].uid +"'] select").data("kendoDropDownList");
+
+                e.data = {
+                    uploader: dropdown.value()
+                };
+              }
+
+            </script>
+
+
+            <style scoped>
+              html {
+                font-size: 12px;
+                font-family: Arial, Helvetica, sans-serif;
+              }
+
+              #example {
+                width: 100%;
+              }
+                .file-wrapper {
+                    margin-left: 150px;
+                }
+                #label{
+                 display : inline;
+                 padding-right : 4px;
+                }
+
+                #select{
+                 margin-top : 4px;
+                    position: relative;
+                    top: 50px;
+                }
+
+                #example .file-heading
+                {
+                    font-family: Arial;
+                    font-size: 1.0em;
+                    line-height: 35px;
+                    display: inline;
+                    float: left;
+                    margin: 0 20px 0 20px;
+                    height: 25px;
+                    -ms-text-overflow: ellipsis;
+                    -o-text-overflow: ellipsis;
+                    text-overflow: ellipsis;
+                    overflow:hidden;
+                    white-space:nowrap;
+                }
+
+                #example .file-name-heading
+                {
+                        font-weight: bold;
+                }
+
+                #example .file-size-heading
+                {
+                        font-weight: normal;
+                        font-style: italic;
+                    position: absolute;
+                    left: 0;
+                    top: 30px;
+                }
+
+                li.k-file .file-wrapper .k-upload-action
+                {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
+
+                li.k-file div.file-wrapper
+                {
+                    position: relative;
+                    height: 85px;
+                }
+
+                      .image-preview {
+                          position: relative;
+                          vertical-align: top;
+                          height: 45px;
+                }
+                .k-dropdown {
+
+                    position: relative;
+
+                }
+                #thumbnail {
+                    width: 150px;
+                    position: absolute;
+                    left: 20px;
+                }
+                #tweederegel {
+                    float: right;
+                    margin-right: 50px;
+                }
+                #eersteregel {
+                    float:right;
+                    margin-right: 50px;
+                }
+
+                .k-toolbar .k-split-button, span.k-colorpicker, span.k-combobox, span.k-datepicker, span.k-datetimepicker, span.k-dropdown, span.k-numerictextbox, span.k-timepicker {
+                    width: 250px !important;
+                }
+            </style>
+        </div>
+
+    </div></div>
+</div>
+
+</body>
+</html>
