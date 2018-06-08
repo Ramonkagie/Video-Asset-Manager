@@ -401,3 +401,8 @@ input::-webkit-calendar-picker-indicator {
     font-size: 14px !important;
     font-family: geometria !important;
 }
+
+#checkbox {
+    position: absolute;
+    right: 50px;
+}
