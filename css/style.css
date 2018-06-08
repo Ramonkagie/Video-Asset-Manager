@@ -286,6 +286,36 @@ hr {
     background-color: #0e3d7b;
     text-decoration: none;
 }
+/* ------ USER BUTTON ------- */
+#user-button {
+     font-family: geometria;
+    font-size: 14px;
+    display:block;
+    float: left;
+    padding:10px;
+    text-align: center;
+    color: #0e3d7b;
+    background-color: transparent;
+    border: 1px solid #0e3d7b;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+
+#user-button:hover {
+    color: #fff;
+    background-color: #0e3d7b;
+}
+
+#user-button a {
+    color: #0e3d7b;
+    text-decoration: none;
+}
+#user-button a:hover {
+    color: #fff;
+    background-color: #0e3d7b;
+    text-decoration: none;
+}
 
 /* ------ BUTTON FAIL------- */
 .button-fail{

@@ -36,7 +36,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="textinput">Add/delete artist</label>
                         <div class="col-md-4">
-                            <input list="add-delete-artist" name="add-delete-artist" class="form-control" placeholder="Artist name">
+                            <input list="add-delete-artist" name="add-delete-artist" class="form-control" placeholder="Type artist name or select one">
                             <datalist id="add-delete-artist">
                                 <option value="Alexander Popov"></option>
                                 <option value="Andrew Rayel"></option>
@@ -59,7 +59,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="textinput">Add/delete event</label>
                     <div class="col-md-4">
-                        <input list="add-delete-event" name="add-delete-event" class="form-control" placeholder="Event name"><datalist id="add-delete-event">
+                        <input list="add-delete-event" name="add-delete-event" class="form-control" placeholder="Type event name or select one"><datalist id="add-delete-event">
                         <option value="A State Of Trance Miami"></option>
                         <option value="A State Of Trance Sydney"></option>
                         <option value="A State Of Trance Utrecht"></option>
@@ -79,7 +79,7 @@
                 <label class="col-md-4 control-label" for="textinput">Add/delete type</label>
                 <div class="col-md-4">
 
-                    <input list="add-delete-type" name="add-delete-type" class="form-control" placeholder="Footage type"><datalist id="add-delete-type">
+                    <input list="add-delete-type" name="add-delete-type" class="form-control" placeholder="Type name or select one"><datalist id="add-delete-type">
                     <option value="Event footage"></option>
                     <option value="Liveset"></option>
                     <option value="Interview"></option>
@@ -90,6 +90,28 @@
 
         </div>
         <hr>
+        <div class="form-group">
+
+                <label class="col-md-4 control-label" for="textinput">Edit or delete a user</label>
+                <div class="col-md-4">
+
+                    <select class="form-control" id="add-delete-type">
+                    <option value="Carlo">Carlo</option>
+                    <option value="Kian">Kian</option>
+                    <option value="Ramon">Ramon</option>
+                    <option value="Tim">Tim</option>
+                    </select></br>
+                <button id="singlebutton" name="singlebutton" class="button-succes">Edit</button><button id="singlebutton" onclick="deleteConfirm()" name="singlebutton" class="button-fail">Delete</button></br></br></br>
+            
+       
+            </div></div>
+        <hr>
+        <div class="form-group">
+
+            <label class="col-md-4 control-label" for="textinput">Add a user</label>
+                <div class="col-md-4">
+                    <a id="user-button" href="user.html">Click here to add a user</a></div>
+            </div>
         </fieldset>
     </form>
 
@@ -103,6 +125,7 @@ function deleteConfirm() {
     }
 
 }
+
 </script>
 </body>
 </html>
